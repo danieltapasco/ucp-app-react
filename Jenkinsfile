@@ -42,8 +42,8 @@ pipeline {
                 subject: "Pipeline ${currentBuild.result}: ucp-app-react #${env.BUILD_NUMBER}",
                 body: """
                     Estado: ${currentBuild.result}
-                    URL Build: ${env.BUILD_URL}
-                    Detalles de Pruebas: ${env.BUILD_URL}testReport/
+                    URL Build: https://be2f-167-249-40-194.ngrok-free.app
+                    Detalles de Pruebas: testReport/
                 """,
                 to: 'daniel.tapasco@ucp.edu.co' // 🔁 Reemplaza con tu email real
             )
