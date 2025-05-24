@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>¡Universidad Católica de Pereira !</h1>
-        <p>Estudiante: Daniel Alberto Tapasc</p>
+        <p>Estudiante: Daniel Alberto Tapasco</p>
         <a
           className="App-link"
           href="https://reactjs.org"
