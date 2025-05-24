@@ -6,6 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <h1>¡Universidad Católica de Pereira !</h1>
         <p>Estudiante: Daniel Alberto Tapasco Trejos</p>
         <a
           className="App-link"
