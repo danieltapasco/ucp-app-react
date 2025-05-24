@@ -37,16 +37,16 @@ pipeline {
 
     // Post acciones (opcional)
     post {
-        always {
-            emailext(
-                subject: "Pipeline ${currentBuild.result}: ucp-app-react #${env.BUILD_NUMBER}",
-                body: """
-                    Estado: ${currentBuild.result}
-                    URL Build: https://be2f-167-249-40-194.ngrok-free.app
-                    Detalles de Pruebas: testReport/
-                """,
-                to: 'daniel.tapasco@ucp.edu.co' // 🔁 Reemplaza con tu email real
+    always {
+        mail(
+            to: 'daniel.tapasco@ucp.edu.co',
+            subject: "Build Status: ${currentBuild.currentResult}",
+            body: """\
+            Job: /github-webhook/
+            Estado: ${currentBuild.currentResult}
+            URL: /github-webhook/
+            """
             )
+            }
         }
-    }
 }
