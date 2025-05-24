@@ -9,7 +9,7 @@ pipeline {
         // Etapa 1: Checkout del código desde GitHub
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/amartinezh/ucp-app-react.git'
+                git branch: 'main', url: 'https://github.com/danieltapasco/ucp-app-react.git'
             }
         }
 
