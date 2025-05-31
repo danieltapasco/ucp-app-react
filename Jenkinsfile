@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'Node_24' // Solo NodeJS es válido aquí
+        nodejs 'Node_24'
     }
 
     environment {
@@ -34,6 +34,16 @@ pipeline {
             }
         }
 
+        stage('Quality Gate') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    timeout(time: 1, unit: 'MINUTES') {
+                        waitForQualityGate abortPipeline: true
+                    }
+                }
+            }
+        }
+
         stage('Build') {
             steps {
                 sh 'npm install'
@@ -45,12 +55,10 @@ pipeline {
 
     post {
         always {
-            script {
-                def qg = waitForQualityGate()
-                if (qg.status != 'OK') {
-                    error "Calidad no aprobada: ${qg.status}"
-                }
-            }
+            echo 'Pipeline finalizado (éxito o error).'
+        }
+        failure {
+            echo 'Pipeline fallido.'
         }
     }
 }
